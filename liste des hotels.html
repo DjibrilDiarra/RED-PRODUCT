@@ -21,7 +21,7 @@
 
         <a href="index.html" > <i class="fa-solid fa-chart-column"></i> Dashboard</a>
         <a href="liste des hotels.html" class="active"> <i class="fa-solid fa-hotel"></i> Liste des hôtels</a>
-        <a href="Nouveau hôtel.html" class="btn-sidebar"><i class="fa-solid fa-plus"></i> Créer un hôtel</a> 
+        <button  class="btn-sidebar" onclick="togglePopup()"><i class="fa-solid fa-plus"></i> Créer un hôtel </button>
         <div class="sidebar-user">
             
             <div class="user">
@@ -34,6 +34,7 @@
             </div>
         </div>
     </aside>
+
     <main class="main">
         <div class="top-fixed">
     <div class="navbar">
@@ -59,14 +60,11 @@
         </div>
     </div>
 
-
     <div class="header">
         <h2>Hôtels 8</h2>
-        <a href="Nouveau hôtel.html">
-            <button><i class="fa-solid fa-plus"></i>Créer un nouveau hôtel</button>
-        </a>
+        <button onclick="togglePopup()"><i class="fa-solid fa-plus"></i>Créer un nouveau hôtel</button>
     </div>
-</div>
+    </div>
     
         <div class="cards">
 
@@ -142,14 +140,70 @@
                 </div>
             </div>
 
-           
         </div>
 
-        
+
+        <div id="modal">
+    <div class="modal-header">
+      <a href=""><span class="back-arrow">←</span></a>
+      <span>CRÉER UN NOUVEAU HÔTEL</span>
+    </div>
+
+    <form id="hotelForm">
+      <div class="form-grid">
+        <div class="form">
+          <label>Nom de l'hôtel</label>
+          <input type="text" id="nom" placeholder="CAP Marniane">
+        </div>
+
+        <div class="form">
+          <label>Adresse</label>
+          <input type="text" id="adresse" value="Les îles du saloum, Mar Lodj">
+        </div>
+
+        <div class="form">
+          <label>E-mail</label>
+          <input type="email" id="email" value="information@gmail.com">
+        </div>
+
+        <div class="form">
+          <label>Numéro de téléphone</label>
+          <input type="tel" id="phone" value="+221 77 777 77 77">
+        </div>
+
+        <div class="form">
+          <label>Prix par nuit</label>
+          <input type="text" id="prix" value="25.000 XOF">
+        </div>
+
+        <div class="form">
+          <label>Devise</label>
+          <select id="devise">
+            <option>F XOF</option>
+            <option>EUR</option>
+            <option>USD</option>
+          </select>
+        </div>
+
+        <div class="form upload-area">
+          <label>Ajouter une photo</label>
+          <div class="upload-box" id="uploadBox">
+            <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>Ajouter une photo</span>
+            <input type="file" id="photo" hidden>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn"><strong><a href="">Enregistrer</a></strong></button>
+      </div>
+    </form>
+  </div>
 
     </main>
-
 </div>
-    
+
+    <script src="liste des hôtel.js"></script>
 </body>
 </html>

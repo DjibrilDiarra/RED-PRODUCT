@@ -234,6 +234,74 @@ body{
 
   .sidebar {
     left: -260px;
+    transition: 0.3s;
+    background-color: #111;
+    opacity: 1;
+    z-index: 100; 
+  }
+  .sidebar-user{
+    margin-top: 300px;
+  }
+  
+  #menu-toggle:checked ~ .container .sidebar {
+    left: 0;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .top-fixed {
+    left: 0;
+    width: 100%;
+  }
+
+  .navbar h3,
+  .header {
+    display: block;
+  }
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 20px;
+    margin-top: 180px;
+  }
+.btn-sidebar {
+  display: block;
+}
+.sidebar{
+  margin-top: 70px;
+  height: 700px;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  top: 35px;
+}
+.sidebar-user{
+  position: fixed;
+   margin-top: 500px;
+}
+}
+
+@media (max-width: 568px) {
+  
+  .container{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+ 
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    left: -260px;
     transition: 0.3s
     background-color: #111;
     opacity: 1;

@@ -48,7 +48,7 @@
             </div>
 
             <div class="user">
-                <img src="image/homme.jpg">
+                <a href="profil.html"><img src="image/homme.jpg"></a>
                 <span class="status"></span>
             </div>
 
@@ -68,7 +68,7 @@
     
         <div class="cards">
 
-            <div class="card">
+            <div class="card" onclick="goToDetail(1)">
                <img src="Image hôtels/ageglobalgroup-manor-house-2359884_1920.jpg" alt="">
                <div class="texte">
                <p>boulevard Martin Luther king Dakar,11500<p>
@@ -77,7 +77,7 @@
                </div>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="goToDetail(2)">
                 <img src="Image hôtels/alphahamster-tunisia-188536_1920.jpg" alt="" >
                 <div class="texte">
                 <p>Rte des Alamadies,Dakar<p>
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card"onclick="goToDetail(3)">
                 <img src="Image hôtels/dpaolaphoto-ipanema-10117990_1920.jpg" alt="">
                 <div class="texte">
                 <p>Rte de la Commiche O,Dakar 16868<p>
@@ -95,46 +95,46 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card"onclick="goToDetail(4)">
                 <img src="Image hôtels/guildrl-hotel-420260_1920.jpg" alt="">
                 <div class="texte">
-                <p>Pla de l'independance,10 Rue PL 29,Daka<p>
+                <p>Place de l'independance,10 Rue PL 29,Dakar<p>
                 <h3>Pullman Dakar terranga</h3>
                 <h5>30.000 XOF par nuit</h5>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card"onclick="goToDetail(5)">
                <img src="Image hôtels/hans-hotel-461615_1920.jpg" alt="">
                <div class="texte">
-               <p>boulevard Martin Luther king Dakar,11500<p>
-               <h3>Hôtel Terrou-Bi</h3>
+               <p>lace Rose , Dakar</p>
+               <h3>Hôtel lace Rose</h3>
                <h5>25.000 XOF par nuit</h5>
                </div>
             </div>
 
-            <div class="card">
+            <div class="card"onclick="goToDetail(6)">
                 <img src="Image hôtels/holgi-singapore-50547_1920.jpg" alt="" >
                 <div class="texte">
-                <p>Rte des Alamadies,Dakar<p>
-                <h3>King Fahd Palace</h3>
+                <p>Mbour,Sénégal<p>
+                <h3>Hôtel Saly</h3>
                 <h5>20.000 XOF par nuit</h5>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card"onclick="goToDetail(7)">
                 <img src="Image hôtels/pexels-grand-hotel-2178413_1920.jpg" alt="">
                 <div class="texte">
-                <p>Rte de la Commiche O,Dakar 16868<p>
-                <h3>Radisson Blu Hotel</h3>
+                <p>BP65,Saly 23000<p>
+                <h3>Palm Beash Resort & spa</h3>
                 <h5>22.000 XOF par nuit</h5>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card"onclick="goToDetail(8)">
                 <img src="Image hôtels/publicco-lift-2203711_1920.jpg" alt="">
                 <div class="texte">
-                <p>Pla de l'independance,10 Rue PL 29,Daka<p>
+                <p>Place de l'independance,10 Rue PL 29,Dakar<p>
                 <h3>Pullman Dakar terranga</h3>
                 <h5>30.000 XOF par nuit</h5>
                 </div>
@@ -184,7 +184,6 @@
             <option>USD</option>
           </select>
         </div>
-
         <div class="form upload-area">
           <label>Ajouter une photo</label>
           <div class="upload-box" id="uploadBox">
@@ -203,7 +202,7 @@
 
     </main>
 </div>
-
+    <script src="data.js"></script>
     <script src="liste des hôtel.js"></script>
 </body>
 </html>

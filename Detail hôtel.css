@@ -4,3 +4,42 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+.detail{
+  background-color: aliceblue;
+  width: 400px;
+  height: 700px;
+  display: grid;
+  grid-template-rows: 1fr ;
+  text-align: justify;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+#image {
+  border-radius: 20px 20px 0px 0px;
+  width: 400px;
+  height: 300px;
+}
+
+.texte{
+position: relative;
+bottom: 25px;
+text-align: center;
+}
+.btn{
+  position: relative;
+  bottom: 20px;
+  text-align: center;
+ 
+}
+.btn button{
+ border-radius: 20px;
+ width: 200px;
+ height: 40px;
+ border: none;
+ background-color: rgb(122, 148, 172);
+}
+.btn button:hover{
+  background-color: rgb(177, 19, 19);
+  transition: 0.3s ease;
+}

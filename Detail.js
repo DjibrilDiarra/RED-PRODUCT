@@ -1,7 +1,16 @@
+
+import { hotels } from "./data.js";
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 const hotel = hotels[id];
+
+console.log(id)
+console.log(hotel)
+console.log(hotels)
+
+
 
 if (!hotel) {
     document.body.innerHTML = "<h2> Hôtel introuvable</h2>";
@@ -16,6 +25,5 @@ if (!hotel) {
     document.getElementById("price").textContent = hotel.price;
 }
 
-function goBack(){
-    window.location.href = "liste des hotels.html";
-}
+
+

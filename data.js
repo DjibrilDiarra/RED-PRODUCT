@@ -1,4 +1,4 @@
-const hotels = {
+export const hotels = {
   1: {
     name: "Hôtel Terrou-Bi",
     image: "Image hôtels/ageglobalgroup-manor-house-2359884_1920.jpg",

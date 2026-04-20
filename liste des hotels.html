@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="card"onclick="goToDetail(3)">
+            <div class="card" onclick="goToDetail(3)">
                 <img src="Image hôtels/dpaolaphoto-ipanema-10117990_1920.jpg" alt="">
                 <div class="texte">
                 <p>Rte de la Commiche O,Dakar 16868<p>
@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="card"onclick="goToDetail(4)">
+            <div class="card" onclick="goToDetail(4)">
                 <img src="Image hôtels/guildrl-hotel-420260_1920.jpg" alt="">
                 <div class="texte">
                 <p>Place de l'independance,10 Rue PL 29,Dakar<p>
@@ -104,7 +104,7 @@
                 </div>
             </div>
 
-            <div class="card"onclick="goToDetail(5)">
+            <div class="card" onclick="goToDetail(5)">
                <img src="Image hôtels/hans-hotel-461615_1920.jpg" alt="">
                <div class="texte">
                <p>lace Rose , Dakar</p>
@@ -113,7 +113,7 @@
                </div>
             </div>
 
-            <div class="card"onclick="goToDetail(6)">
+            <div class="card" onclick="goToDetail(6)">
                 <img src="Image hôtels/holgi-singapore-50547_1920.jpg" alt="" >
                 <div class="texte">
                 <p>Mbour,Sénégal<p>
@@ -122,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="card"onclick="goToDetail(7)">
+            <div class="card" onclick="goToDetail(7)">
                 <img src="Image hôtels/pexels-grand-hotel-2178413_1920.jpg" alt="">
                 <div class="texte">
                 <p>BP65,Saly 23000<p>
@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="card"onclick="goToDetail(8)">
+            <div class="card" onclick="goToDetail(8)">
                 <img src="Image hôtels/publicco-lift-2203711_1920.jpg" alt="">
                 <div class="texte">
                 <p>Place de l'independance,10 Rue PL 29,Dakar<p>
@@ -202,7 +202,22 @@
 
     </main>
 </div>
-    <script src="data.js"></script>
-    <script src="liste des hôtel.js"></script>
+
+
+    <script>
+    function togglePopup(){
+    const popup = document.querySelector("#modal");
+    if (popup) {
+        popup.classList.toggle("open");
+    }
+}
+
+function goToDetail(id){
+   window.location.href=`/Detail-hôtel.html?id=${id}`
+}
+    </script>
+    <script src="liste-hôtel.js" type="module"></script>
+    
+  
 </body>
 </html>

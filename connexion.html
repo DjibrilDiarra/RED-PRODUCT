@@ -12,19 +12,67 @@
     <h2><i class="fa-solid fa-bookmark"></i> RED PRODUT</h2>
      <div class="connecter"> 
         <p>Connectez vous en tant que Admin</p>
-        <p  class="c"><input type="email" placeholder="E-mail"></p>
+        <p  class="c"><input type="email" id="email"></p>
         
-        <p class="c"><input type="password" placeholder="Mot de passe"></p>
+        <p class="c"><input type="password" id="password"></p>
          
             <p class="i">
                 <input type="checkbox"> Gardez-moi connecté
             </p>
-        <a href="index.html"><button class="btn" type="submit">Se connecter</button></a>
+            <button class="btn" onclick="connexion()">Se connecter</button>
     
     </div>
     <a href="mot de passe.html"> Mot de passe oublier?</a>
     <p class="inscription">Vous n'avez pas de compte?
         <a href="inscription.html"> S'inscrire </a>
     </p>
+
+
+
+
+
+<script>
+async function connexion() {
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+
+    if (!email || !password) {
+        alert("Remplis tous les champs")
+        return
+    }
+
+    try {
+        const res = await fetch("http://localhost:5000/connexion", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json" 
+            },
+            body: JSON.stringify({ email, password })
+        })
+
+        const data = await res.json()
+
+        if (!res.ok) {
+            alert(data.message || "Erreur connexion")
+            return
+        }
+
+        //  STOCKER LE TOKEN
+        localStorage.setItem("token", data.token)
+
+        alert("Connexion réussie")
+
+        // REDIRECTION
+        window.location.href = "index.html"
+
+    } catch (err) {
+        console.log(err)
+        alert(" Serveur indisponible")
+    }
+}
+</script>
+
+
+
 </body>
 </html>

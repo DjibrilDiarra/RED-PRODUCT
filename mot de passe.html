@@ -12,12 +12,53 @@
      <div class="connecter"> 
         <p>Mot de pass oublié</p>
         <p>Entrer votre adresse e-mail ci-dessous et nous vous envoyons des instructions sur la façon de modifier votre mot de passe.</p>
-        <p  class="c"><input type="email"placeholder="E-mail"></p>    
-        <a href="connexion.html"><button class="btn" type="submit">Envoyer</button></a>
-    
+        <p class="c"><input type="email" id="email" placeholder="E-mail"></p>    
+        
+
+<button class="btn" onclick="reset()">Envoyer</button>
+
+
     </div>
     <p class="connexion"> Revenir à la 
         <a href="connexion.html">connexion</a>
     </p>
+
+    <script>
+    async function reset() {
+    const email = document.getElementById("email").value
+
+    if (!email) {
+        alert("Veuillez entrer un email")
+        return
+    }
+
+    try {
+        const res = await fetch("http://localhost:5000/mot-de-passe-oublie", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json" 
+            },
+            body: JSON.stringify({ email })
+        })
+
+        const data = await res.json()
+
+        if (!res.ok) {
+            alert(data.message || "Erreur")
+            return
+        }
+
+        //  message backend
+        alert(data.message)
+
+        // IMPORTANT POUR TEST
+        console.log("TOKEN RESET :", data.resetToken)
+
+    } catch (err) {
+        console.log(err)
+        alert("Erreur serveur")
+    }
+}
+</script>
 </body>
 </html>

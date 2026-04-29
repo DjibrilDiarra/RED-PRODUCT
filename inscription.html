@@ -11,19 +11,59 @@
      <h2><i class="fa-solid fa-bookmark"></i> RED PRODUT</h2>
      <div class="connecter"> 
         <p>Connectez vous en tant que Admin</p>
-         <p  class="c"><input type="text" placeholder="Nom"></p>
-        
-        <p  class="c"><input type="email" placeholder="E-mail"></p>
-        
-        <p class="c"><input type="password" placeholder="Mot de passe"></p>
+        <p class="c"><input  type="text" id="nom" placeholder="Nom"></p>
+        <p class="c"><input  type="email" id="email" placeholder="E-mail"></p>
+        <p class="c"><input  type="password" id="password" placeholder="Mot de passe"></p>
+
            
             <p class="i">
                 <input type="checkbox"> Gardez-moi connecté
             </p>
-        <a href="connexion.html"><button class="btn" type="submit">S'incrire</button></a>
+            <button class="btn" onclick="inscription()">S'inscrire</button>
     </div>
     <p class="inscription">Vous avez déjà un compte?
         <a href="connexion.html"> Se connecter </a>
     </p>
+
+
+<script>
+    async function inscription() {
+    const nom = document.getElementById("nom").value
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+
+    if (!nom || !email || !password) {
+        alert("Remplis tous les champs")
+        return
+    }
+
+    try {
+        const res = await fetch("http://localhost:5000/inscription", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ nom, email, password })
+        })
+
+        const data = await res.json()
+
+        if (!res.ok) {
+            alert(data.message || "Erreur serveur")
+            return
+        }
+
+        alert("Inscription réussie")
+
+        // REDIRECTION VERS LOGIN
+        window.location.href = "connexion.html"
+
+    } catch (err) {
+        console.log(err)
+        alert("Erreur connexion serveur")
+    }
+}
+</script>
+    
 </body>
 </html>

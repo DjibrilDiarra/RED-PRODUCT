@@ -1,29 +1,36 @@
-
-import { hotels } from "./data.js";
-
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-const hotel = hotels[id];
-
-console.log(id)
-console.log(hotel)
-console.log(hotels)
-
-
-
-if (!hotel) {
-    document.body.innerHTML = "<h2> Hôtel introuvable</h2>";
-} else {
-    document.getElementById("name").textContent = hotel.name;
-    document.getElementById("image").src = hotel.image;
-    document.getElementById("location").textContent = hotel.location;
-    document.getElementById("stars").textContent = hotel.stars;
-    document.getElementById("rooms").textContent = hotel.rooms;
-    document.getElementById("restaurant").textContent = hotel.restaurant;
-    document.getElementById("services").textContent = hotel.services;
-    document.getElementById("price").textContent = hotel.price;
+function formatPrix(prix) {
+  return Number(prix).toLocaleString("fr-FR");
 }
 
+async function afficherHotel() {
+  if (!id) {
+    document.body.innerHTML = "<h2>ID manquant</h2>";
+    return;
+  }
 
+  try {
+    const res = await fetch(`http://localhost:5000/hotel/${id}`);
+    const hotel = await res.json();
 
+    if (!res.ok || !hotel) {
+      document.body.innerHTML = "<h2>Hôtel introuvable</h2>";
+      return;
+    }
+
+    console.log(hotel);
+
+    document.getElementById("name").textContent = hotel.nom;
+    document.getElementById("image").src = hotel.image;
+    document.getElementById("location").textContent = hotel.adresse;
+    document.getElementById("price").textContent = formatPrix(hotel.prix) + " XOF";
+
+  } catch (err) {
+    console.log(err);
+    document.body.innerHTML = "<h2>Erreur serveur</h2>";
+  }
+}
+
+afficherHotel();

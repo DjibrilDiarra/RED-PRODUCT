@@ -8,34 +8,31 @@
 <body>
 
 <div class="detail">
-<div>
-  <img id="image">
-</div>
+  <div>
+    <img id="image">
+  </div>
+
   <div class="texte">
-  <h1 id="name"></h1>
-  <p> <strong>Localisation :</strong> <span id="location"></span></p>
-  <p> <strong>Étoiles :</strong> <span id="stars"></span></p>
-  <p> <strong>Chambres :</strong> <span id="rooms"></span></p>
-  <p> <strong>Restauration :</strong> <span id="restaurant"></span></p>
-  <p> <strong>Services :</strong> <span id="services"></span></p>
-  <p> <strong>Prix :</strong> <span id="price"></span></p>
-  
+    <h1 id="name"></h1>
+    <p><strong>Localisation :</strong> <span id="location"></span></p>
+    <p><strong>Chambres Climatiser immeuble Complet </strong> <span id="rooms"></span></p>
+    <p><strong>Restauration Ouvert 24h/24h</strong> <span id="restaurant"></span></p>
+    <p><strong>Services Complet </strong> <span id="services"></span></p>
+    <p><strong>Prix :</strong> <span id="price"></span></p>
+  </div>
+
+  <div class="btn">
+    <button onclick="goBack()">⬅ Retour</button>
+  </div>
 </div>
-<div class="btn">
-  <button onclick="goBack()">⬅ Retour</button>
-</div>
-</div>
+
 <script>
-
-
 function goBack(){
-    window.location.href = "liste des hotels.html";
+  window.location.href = "liste des hotels.html";
 }
-
-
 </script>
 
-<script src="Detail.js" type="module"></script>
+<script src="detail.js" type="module"></script>
 
 </body>
 </html>

@@ -64,13 +64,13 @@ body{
 }
 
 .sidebar-user {
-  position: fixed;
-  border-top: #fff solid 1px;
-  padding: 10px;
+  border-top: #ccc solid 1px;
   margin-top: 550px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: -0px;
+ padding: 0px;
+ position: fixed;
 }
 
 .top-fixed {
@@ -189,11 +189,15 @@ body{
   right: 0;
   width: 10px;
   height: 10px;
+  
   background: limegreen;
   border-radius: 50%;
   border: 2px solid white;
 }
-
+.sidebar .status{
+  left: 50px;
+  top: 41px;
+}
 
 #menu-toggle {
   display: none;

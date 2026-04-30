@@ -1,6 +1,7 @@
+const API_URL = "https://red-product-backend-2hqv.onrender.com"
+
 const cards = document.querySelector('.cards')
 
-// TOKEN
 const token = localStorage.getItem("token")
 
 if (!token) {
@@ -8,12 +9,9 @@ if (!token) {
   window.location.href = "connexion.html"
 }
 
-
-//  FORMAT PRIX
 function formatPrix(prix) {
   return Number(prix).toLocaleString("fr-FR")
 }
-
 
 // CREER HOTEL
 async function creerHotel(event) {
@@ -36,7 +34,7 @@ async function creerHotel(event) {
     formData.append("prix", prix)
     formData.append("photo", photo)
 
-    const res = await fetch("http://localhost:5000/hotel", {
+    const res = await fetch(`${API_URL}/hotel`, {
       method: "POST",
       headers: {
         Authorization: token
@@ -52,9 +50,7 @@ async function creerHotel(event) {
     }
 
     alert("Hôtel créé avec succès")
-
     document.getElementById("hotelForm").reset()
-
     afficherHotels()
 
   } catch (err) {
@@ -63,11 +59,10 @@ async function creerHotel(event) {
   }
 }
 
-
 // AFFICHER HOTELS
 async function afficherHotels() {
   try {
-    const res = await fetch("http://localhost:5000/hotels", {
+    const res = await fetch(`${API_URL}/hotels`, {
       headers: {
         Authorization: token
       }
@@ -75,25 +70,17 @@ async function afficherHotels() {
 
     const hotels = await res.json()
 
-    if (!res.ok) {
-      alert("Erreur chargement hôtels")
-      return
-    }
-
     cards.innerHTML = ""
 
     hotels.forEach((hotel) => {
       const card = document.createElement('div')
-      card.classList.add('card')
 
       card.innerHTML = `
         <img src="${hotel.image}" onclick="goToDetail('${hotel._id}')">
-
         <div class="texte">
           <p>${hotel.adresse || 'Adresse inconnue'}</p>
           <h3>${hotel.nom}</h3>
           <h5>${formatPrix(hotel.prix)} XOF par nuit</h5>
-
           <button onclick="supprimerHotel('${hotel._id}')">
             Supprimer
           </button>
@@ -109,14 +96,12 @@ async function afficherHotels() {
   }
 }
 
-
-// SUPPRIMER HOTEL
+// SUPPRIMER
 async function supprimerHotel(id) {
-  const confirmDelete = confirm("Supprimer cet hôtel ?")
-  if (!confirmDelete) return
+  if (!confirm("Supprimer cet hôtel ?")) return
 
   try {
-    const res = await fetch(`http://localhost:5000/hotel/${id}`, {
+    const res = await fetch(`${API_URL}/hotel/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: token
@@ -131,7 +116,6 @@ async function supprimerHotel(id) {
     }
 
     alert("Hôtel supprimé")
-
     afficherHotels()
 
   } catch (err) {
@@ -140,17 +124,13 @@ async function supprimerHotel(id) {
   }
 }
 
-
 // DETAIL
 function goToDetail(id) {
   window.location.href = `Detail-hôtel.html?id=${id}`
 }
 
-
 window.creerHotel = creerHotel
-window.afficherHotels = afficherHotels
 window.supprimerHotel = supprimerHotel
 window.goToDetail = goToDetail
-
 
 afficherHotels()

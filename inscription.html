@@ -27,7 +27,9 @@
 
 
 <script>
-    async function inscription() {
+const API_URL = "https://red-product-backend-2hqv.onrender.com"
+
+async function inscription() {
     const nom = document.getElementById("nom").value
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
@@ -38,7 +40,7 @@
     }
 
     try {
-        const res = await fetch("http://localhost:5000/inscription", {
+        const res = await fetch(`${API_URL}/inscription`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -54,13 +56,11 @@
         }
 
         alert("Inscription réussie")
-
-        // REDIRECTION VERS LOGIN
         window.location.href = "connexion.html"
 
     } catch (err) {
         console.log(err)
-        alert("Erreur connexion serveur")
+        alert("Erreur serveur")
     }
 }
 </script>

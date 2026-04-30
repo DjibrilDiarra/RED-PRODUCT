@@ -30,8 +30,9 @@
 
 
 
-
 <script>
+const API_URL = "https://red-product-backend-2hqv.onrender.com"
+
 async function connexion() {
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
@@ -42,10 +43,10 @@ async function connexion() {
     }
 
     try {
-        const res = await fetch("http://localhost:5000/connexion", {
+        const res = await fetch(`${API_URL}/connexion`, {
             method: "POST",
-            headers: { 
-                "Content-Type": "application/json" 
+            headers: {
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({ email, password })
         })
@@ -57,20 +58,18 @@ async function connexion() {
             return
         }
 
-        //  STOCKER LE TOKEN
         localStorage.setItem("token", data.token)
 
         alert("Connexion réussie")
-
-        // REDIRECTION
         window.location.href = "index.html"
 
     } catch (err) {
         console.log(err)
-        alert(" Serveur indisponible")
+        alert("Serveur indisponible")
     }
 }
 </script>
+
 
 
 

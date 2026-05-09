@@ -3,6 +3,10 @@ const API_URL = "https://red-product-backend-2hqv.onrender.com"
 const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
 
+fetch(`${API_URL}/hotel/${id}`)
+
+
+
 function formatPrix(prix) {
   return Number(prix).toLocaleString("fr-FR")
 }

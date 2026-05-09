@@ -74,9 +74,14 @@ async function afficherHotels() {
 
     hotels.forEach((hotel) => {
       const card = document.createElement('div')
+      card.style.background = "#fff"
+      card.style.borderRadius = "10px"
+      card.style.padding = "0px"
 
       card.innerHTML = `
+        
        <img src="${hotel.image || 'default.jpg'}" onclick="goToDetail('${hotel._id}')">
+       
         <div class="texte">
           <p>${hotel.adresse || 'Adresse inconnue'}</p>
           <h3>${hotel.nom}</h3>

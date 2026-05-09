@@ -168,19 +168,15 @@ body{
   
 }
 
-.card {
-  background-color: white;
-  border-radius: 10px;
-  display: grid;
-  gap: 10px;
-  
-}
-.card img{
+
+
+.cards img{
     height: 200px;
     width: 100%;
     text-align: center;
     align-items: center;
     border-radius: 10px 10px 0 0;
+    padding: 0px;
     
 }
     

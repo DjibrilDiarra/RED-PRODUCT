@@ -55,7 +55,10 @@ async function inscription() {
             return
         }
 
-        alert("Inscription réussie. Vérifie ton email.")
+        alert("Inscription réussie. Vérifie ton email 👇")
+
+        // 👉 redirection login
+        window.location.href = "connexion.html"
 
     } catch (err) {
         console.log(err)
